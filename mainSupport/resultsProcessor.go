@@ -38,7 +38,12 @@ func (r *CallResult) String() string {
 	return r.UserID + " " + r.PathClue + " " + r.Duration.String() + " (" + strconv.Itoa(r.Status) + ") " + r.ResponseBodyClue
 }
 
+type StatusCodeEvaluator interface {
+	IsExpectedStatusCode(statusCode int) bool
+}
+
 type CallResult struct {
+	StatusEvaluator  StatusCodeEvaluator
 	UserID           string
 	PathClue         string
 	Duration         time.Duration
@@ -66,7 +71,8 @@ func (r *ResultsTracker) Report(concurrencyError error) {
 				totalDuration += cr.Duration
 				tracker, present := m[cr.PathClue]
 				if !present {
-					m[cr.PathClue] = &PathTracker{calls: 1, callsByStatus: map[int]int{cr.Status: 1},
+					m[cr.PathClue] = &PathTracker{pathClue: cr.PathClue, calls: 1,
+						callsByStatus:       map[int]*StatusCodeTracker{cr.Status: {statusCode: cr.Status, evaluator: cr.StatusEvaluator, count: 1}},
 						smallestDuration:    cr.Duration,
 						LongestDuration:     cr.Duration,
 						accumulatedDuration: cr.Duration,
@@ -95,6 +101,26 @@ func (r *ResultsTracker) Report(concurrencyError error) {
 	}
 }
 
+type StatusCodeTracker struct {
+	statusCode int
+	evaluator  StatusCodeEvaluator
+	count      int
+}
+
+func (r *StatusCodeTracker) String() string {
+	if r == nil {
+		return "<none>\n"
+	}
+	sb := &strings.Builder{}
+	_, _ = sb.WriteString(strconv.Itoa(r.statusCode))
+	_, _ = sb.WriteString(": ")
+	_, _ = sb.WriteString(strconv.Itoa(r.count))
+	if !r.evaluator.IsExpectedStatusCode(r.statusCode) {
+		_, _ = sb.WriteString("    *********************** Unexpected")
+	}
+	return sb.String()
+}
+
 func chkErrors(lastErr, concurrencyError error) (errorMsg string) {
 	lErrMsg := checkNormalizeErrorAndPrefix("", lastErr)
 	cErrMsg := checkNormalizeErrorAndPrefix(lErrMsg, concurrencyError)
@@ -116,8 +142,9 @@ func checkNormalizeErrorAndPrefix(prevText string, err error) (result string) {
 }
 
 type PathTracker struct {
+	pathClue            string
 	calls               int
-	callsByStatus       map[int]int
+	callsByStatus       map[int]*StatusCodeTracker
 	smallestDuration    time.Duration
 	LongestDuration     time.Duration
 	accumulatedDuration time.Duration
@@ -125,7 +152,13 @@ type PathTracker struct {
 
 func (r *PathTracker) update(cr *CallResult) {
 	r.calls++
-	r.callsByStatus[cr.Status]++
+	tracker := r.callsByStatus[cr.Status]
+	if tracker != nil {
+		tracker.count++
+	} else {
+		r.callsByStatus[cr.Status] = &StatusCodeTracker{
+			statusCode: cr.Status, evaluator: cr.StatusEvaluator, count: 1}
+	}
 	duration := cr.Duration
 	r.accumulatedDuration += duration
 	if duration < r.smallestDuration {
@@ -142,7 +175,7 @@ func (r *PathTracker) print(indent string) {
 		" range ", r.smallestDuration, " <> ", r.LongestDuration)
 	statuses := sortKeyInts(r.callsByStatus)
 	for _, status := range statuses {
-		fmt.Println(indent, indent, indent, status, ": ", r.callsByStatus[status])
+		fmt.Println(indent, indent, indent, r.callsByStatus[status])
 	}
 }
 
@@ -160,7 +193,7 @@ func sortKeyStrings(mapping map[string]*PathTracker) []string {
 	return keys
 }
 
-func sortKeyInts(mapping map[int]int) []int {
+func sortKeyInts(mapping map[int]*StatusCodeTracker) []int {
 	keys := make([]int, 0, len(mapping))
 
 	for k := range mapping {

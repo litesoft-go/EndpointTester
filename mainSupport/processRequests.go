@@ -3,12 +3,13 @@ package mainSupport
 import (
 	"context"
 	"endpointTester/httpRequest"
+	"endpointTester/requestConfig"
 	"fmt"
 	"strings"
 	"time"
 )
 
-func NewCaller(user *httpRequest.UserData, requestDefs []*httpRequest.RequestDefinition,
+func NewCaller(user *httpRequest.UserData, requestDefs []*requestConfig.RequestDefinition,
 	spoofedIpHeader string, initialOffset, passes int, messages chan<- *CallResult, ctx context.Context) *Caller {
 
 	var requests []*requestMapping
@@ -59,7 +60,7 @@ func (r *Caller) incrementAndConstrainOffset(offset int) int {
 	return 0
 }
 
-func create(user *httpRequest.UserData, spoofedIpHeader string, requestDef *httpRequest.RequestDefinition) *requestMapping {
+func create(user *httpRequest.UserData, spoofedIpHeader string, requestDef *requestConfig.RequestDefinition) *requestMapping {
 	callerId := user.IP()
 	callerIdExt := "     "
 	headers := []*httpRequest.Header{httpRequest.NewHeader(spoofedIpHeader, callerId)}
@@ -70,31 +71,32 @@ func create(user *httpRequest.UserData, spoofedIpHeader string, requestDef *http
 			value = "Bearer " + user.JWT()
 			callerIdExt = "(JWT)"
 		}
-		headers = append(headers, httpRequest.NewHeader(httpRequest.AuthorizationHeaderName, value))
+		headers = append(headers, httpRequest.NewHeader(requestConfig.AuthorizationHeaderName, value))
 	}
 	headers = append(headers, requestDef.Headers()...)
 	return &requestMapping{
-		userID:   callerId + callerIdExt + ":",
-		pathClue: requestDef.Summary(),
-		method:   requestDef.Method(),
-		uri:      requestDef.Uri(),
-		headers:  headers,
-		body:     requestDef.Body(),
+		userID:     callerId + callerIdExt + ":",
+		definition: requestDef,
+		headers:    headers,
 	}
 }
 
 type requestMapping struct {
-	userID   string
-	pathClue string
-	method   *httpRequest.Method
-	uri      string
-	headers  []*httpRequest.Header
-	body     string
+	userID     string
+	definition *requestConfig.RequestDefinition
+	headers    []*httpRequest.Header
 }
 
 func (r *Caller) call(request *requestMapping) error {
-	result, err := callWithFields(request.userID, request.pathClue, request.method, request.uri, request.body, request.headers...)
+	result, err := callWithFields(
+		request.userID,
+		request.definition.Summary(),
+		request.definition.Method(),
+		request.definition.Uri(),
+		request.definition.Body(),
+		request.headers...)
 	if err == nil {
+		result.StatusEvaluator = request.definition
 		r.resultsChannel <- result
 	}
 	return err

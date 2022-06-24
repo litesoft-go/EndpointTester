@@ -1,0 +1,944 @@
+# No Security
+# /password/**
+# /saml/web/**
+# /error**
+# /healthz/**
+
+---Doc---
+# No Security -- Probably bogus!
+GET /square-logo.png
+Authorization: NONE
+
+---Doc---
+# No Security -- Probably bogus!
+GET /oauth/token/.well-known/openid-configuration
+Authorization: NONE
+
+---Doc---
+# No Security
+GET /.well-known/openid-configuration
+Accept: application/json
+Authorization: NONE
+
+---Doc---
+# No Security
+GET /info
+Accept: application/json
+Authorization: NONE
+
+---Doc---
+# No Security -- redirects to /login
+GET /
+Authorization: NONE
+
+---Doc---
+# No Security
+GET /login
+Authorization: NONE
+
+---Doc---
+# No Security
+GET /email_sent
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /accounts/email_sent
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /saml_error
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /favicon.ico
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /oauth_error
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /session
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /session_management
+Authentication: NONE
+
+---Doc---
+# No Security
+GET /invalid_request
+Authentication: NONE
+
+---Doc---
+# No Security (/vendor/**) -- used on both the login page AND the Too many requests page
+GET /vendor/font-awesome/css/font-awesome.min.css
+Authorization: NONE
+
+---Doc---
+# No Security (/resources/**) -- used on both the login page AND the Too many requests page
+GET /resources/oss/stylesheets/application.css
+Authorization: NONE
+
+---Doc---
+# No Security (/resources/**) -- used on the login page (AND maybe the Too many requests page)
+GET /resources/oss/images/square-logo.png
+Authorization: NONE
+
+---Doc---
+# No Security (/resources/**) -- used on both the login page AND the Too many requests page
+GET /resources/oss/images/product-logo.png
+Authorization: NONE
+
+---Doc---
+GET /oauth/authorize?response_type=code&client_id=login&scope=openid+oauth.approvals&redirect_uri=http%3A%2F%2Flocalhost%2Fapp&login_hint=%257B%2522origin%2522%253A%2522uaa%2522%257D&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Doc---
+GET /oauth/authorize?response_type=code&client_id=login&redirect_uri=http%3A%2F%2Flocalhost%2Fredirect%2Fcf&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=cS3wKu
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiI0NGQ1OTQzY2NmYWI0YmJhODdjYTgyMGU1NjJkMWIzZCIsInN1YiI6ImFlYzAzNzE0LTJkN2YtNGQ1OS1hMGVjLTMzMmQyY2QzYTZiNCIsInNjb3BlIjpbInVhYS51c2VyIl0sImNsaWVudF9pZCI6ImNmIiwiY2lkIjoiY2YiLCJhenAiOiJjZiIsImdyYW50X3R5cGUiOiJwYXNzd29yZCIsInVzZXJfaWQiOiJhZWMwMzcxNC0yZDdmLTRkNTktYTBlYy0zMzJkMmNkM2E2YjQiLCJvcmlnaW4iOiJ1YWEiLCJ1c2VyX25hbWUiOiJtYXJpc3NhIiwiZW1haWwiOiJtYXJpc3NhQHRlc3Qub3JnIiwiYXV0aF90aW1lIjoxNjUyOTkwNTk4LCJyZXZfc2lnIjoiNTkxMzI5NjMiLCJpYXQiOjE2NTI5OTA1OTgsImV4cCI6MTY1MzAzMzc5OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3VhYS9vYXV0aC90b2tlbiIsInppZCI6InVhYSIsImF1ZCI6WyJjZiIsInVhYSJdfQ.Z6v-yGQ9BLS67H8KBnZ31sAHCXFs2O5A7zgNrNErPiU
+
+---Doc---
+GET /oauth/authorize?response_type=token&client_id=app&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapp%2F&login_hint=%257B%2522origin%2522%253A%2522uaa%2522%257D
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Doc---
+GET /oauth/authorize?response_type=token&client_id=app&scope=openid&prompt=none&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapp%2F
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Doc---
+GET /oauth/authorize?response_type=code+id_token&client_id=app&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapp%2F&login_hint=%257B%2522origin%2522%253A%2522uaa%2522%257D
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic bG9naW46bG9naW5zZWNyZXQ=
+Accept: application/json
+
+client_id=login&client_secret=loginsecret&grant_type=authorization_code&code=ZE6garb0-52bJV8IkQ0fRRSxNB5hRiEw&token_format=opaque&code_verifier=dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk&redirect_uri=http%3A%2F%2Flocalhost%2Fredirect%2Fcf
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=login&client_secret=loginsecret&scope=scim.write&grant_type=client_credentials&token_format=opaque
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: Basic bG9naW46bG9naW5zZWNyZXQ=
+
+grant_type=client_credentials&scope=scim.write&token_format=opaque
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+
+grant_type=password&passcode=_9bRt-hy6Z&token_format=opaque
+
+---Doc---
+############ Bearer but short!
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer cd8dff565715491c953784ff5ec04f47
+Accept: application/json
+
+client_id=app&grant_type=user_token&scope=openid&token_format=jwt
+
+---Doc---
+POST /oauth/token/alias/2c9h7j.cloudfoundry-saml-login
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer&client_id=testclientSZwoLq&client_secret=secret&assertion=PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c2FtbDI6QXNzZXJ0aW9uIHhtbG5zOnNhbWwyPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YXNzZXJ0aW9uIiBJRD0iYTI3ZWJhM2liaTU0Z2k3ZzFiOTAyNjY1ZDljajFqNyIgSXNzdWVJbnN0YW50PSIyMDIyLTA1LTE5VDIwOjAzOjI1LjkxOFoiIFZlcnNpb249IjIuMCIgeG1sbnM6eHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIj48c2FtbDI6SXNzdWVyPjJjOWg3ai5jbG91ZGZvdW5kcnktc2FtbC1sb2dpbjwvc2FtbDI6SXNzdWVyPjxkczpTaWduYXR1cmUgeG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPjxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIi8-PGRzOlNpZ25hdHVyZU1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNyc2Etc2hhMSIvPjxkczpSZWZlcmVuY2UgVVJJPSIjYTI3ZWJhM2liaTU0Z2k3ZzFiOTAyNjY1ZDljajFqNyI-PGRzOlRyYW5zZm9ybXM-PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIi8-PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyI-PGVjOkluY2x1c2l2ZU5hbWVzcGFjZXMgeG1sbnM6ZWM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIgUHJlZml4TGlzdD0ieHMiLz48L2RzOlRyYW5zZm9ybT48L2RzOlRyYW5zZm9ybXM-PGRzOkRpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNzaGExIi8-PGRzOkRpZ2VzdFZhbHVlPnh1aFpvN0M1UTNNcnZTaWg2TmZxaEJvMzVBUT08L2RzOkRpZ2VzdFZhbHVlPjwvZHM6UmVmZXJlbmNlPjwvZHM6U2lnbmVkSW5mbz48ZHM6U2lnbmF0dXJlVmFsdWU-WjRjR1IrQnl1SlV6b0pXbGZrSkw5M2szUEEyRmhpdGRsTkNsV2JrNXVKS3hmTktOWVBGVUpKcERyRWVBbHBpVm11dGJqRzBHUWFaaWpTbmEzQjAwNVhoR0U3bk9VVHQybllqa2ZpVlVuMUFNZkx1eVM4VHh3VmFMSUxKQTlKZUx1Y0JYWjNURld1VE9IdDFubmMvN2RkRUd3WENHRW4zL1ZLWHJKM2o3ZzBFPTwvZHM6U2lnbmF0dXJlVmFsdWU-PGRzOktleUluZm8-PGRzOlg1MDlEYXRhPjxkczpYNTA5Q2VydGlmaWNhdGU-TUlJRFNUQ0NBcktnQXdJQkFnSUJBREFOQmdrcWhraUc5dzBCQVFRRkFEQjhNUXN3Q1FZRFZRUUdFd0poZHpFT01Bd0dBMVVFQ0JNRgpZWEoxWW1FeERqQU1CZ05WQkFvVEJXRnlkV0poTVE0d0RBWURWUVFIRXdWaGNuVmlZVEVPTUF3R0ExVUVDeE1GWVhKMVltRXhEakFNCkJnTlZCQU1UQldGeWRXSmhNUjB3R3dZSktvWklodmNOQVFrQkZnNWhjblZpWVVCaGNuVmlZUzVoY2pBZUZ3MHhOVEV4TWpBeU1qSTIKTWpkYUZ3MHhOakV4TVRreU1qSTJNamRhTUh3eEN6QUpCZ05WQkFZVEFtRjNNUTR3REFZRFZRUUlFd1ZoY25WaVlURU9NQXdHQTFVRQpDaE1GWVhKMVltRXhEakFNQmdOVkJBY1RCV0Z5ZFdKaE1RNHdEQVlEVlFRTEV3VmhjblZpWVRFT01Bd0dBMVVFQXhNRllYSjFZbUV4CkhUQWJCZ2txaGtpRzl3MEJDUUVXRG1GeWRXSmhRR0Z5ZFdKaExtRnlNSUdmTUEwR0NTcUdTSWIzRFFFQkFRVUFBNEdOQURDQmlRS0IKZ1FESHRDNWdVWHhCS3BFcVpUTGtOdkZ3TkduTklrZ2dOT3dPUVZOYnBPMFdWSElpdmlnNUwzOVdxUzl1MGhuQStPN01DQS9LbHJBUgo0YlhhZVZWaHdmVVBZQktJcGFhVFdGUVI1Y1RSMVVGWkpML09GOXZBZnBPd3pub0Q2NkREQ25RVnBiQ2p0RFlXWCt4NmlteG44SENZCnhoTW9sNlpuVGJTc0ZXNlZaakZNalFJREFRQUJvNEhhTUlIWE1CMEdBMVVkRGdRV0JCVHgwbER6akgvaU9Cbk9TUWFTRVdRTHgxc3kKR0RDQnB3WURWUjBqQklHZk1JR2NnQlR4MGxEempIL2lPQm5PU1FhU0VXUUx4MXN5R0tHQmdLUitNSHd4Q3pBSkJnTlZCQVlUQW1GMwpNUTR3REFZRFZRUUlFd1ZoY25WaVlURU9NQXdHQTFVRUNoTUZZWEoxWW1FeERqQU1CZ05WQkFjVEJXRnlkV0poTVE0d0RBWURWUVFMCkV3VmhjblZpWVRFT01Bd0dBMVVFQXhNRllYSjFZbUV4SFRBYkJna3Foa2lHOXcwQkNRRVdEbUZ5ZFdKaFFHRnlkV0poTG1GeWdnRUEKTUF3R0ExVWRFd1FGTUFNQkFmOHdEUVlKS29aSWh2Y05BUUVFQlFBRGdZRUFZdkJKMEhPWmJiSENsWG1HVWpHcytHUyt4QzFGTy9hbQoyc3VDU1lxTkI5ZHlNWGZPV2lKMStUTEprK28vWVp0OHZ1eENLZGNaWWdsNGwvTDZQeEo5ODJTUmhjODNaVzJka0FaSTRNMC9VZDNvCmVQZTg0azhqbTNBN0V2SDV3aTVodkNrS1JwdVJCd24zRWkrakNSb3V4VGJ6S1BzdUNWQisxc055eE1UWHpmMD08L2RzOlg1MDlDZXJ0aWZpY2F0ZT48L2RzOlg1MDlEYXRhPjwvZHM6S2V5SW5mbz48L2RzOlNpZ25hdHVyZT48c2FtbDI6U3ViamVjdD48c2FtbDI6TmFtZUlEIEZvcm1hdD0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6MS4xOm5hbWVpZC1mb3JtYXQ6dW5zcGVjaWZpZWQiPlNhbWwyQmVhcmVySW50ZWdyYXRpb25Vc2VyPC9zYW1sMjpOYW1lSUQ-PHNhbWwyOlN1YmplY3RDb25maXJtYXRpb24gTWV0aG9kPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6Y206YmVhcmVyIj48c2FtbDI6U3ViamVjdENvbmZpcm1hdGlvbkRhdGEgTm90T25PckFmdGVyPSIyMDIyLTA1LTE5VDIxOjAzOjI2LjAwMloiIFJlY2lwaWVudD0iaHR0cDovLzJjOWg3ai5sb2NhbGhvc3Q6ODA4MC91YWEvb2F1dGgvdG9rZW4vYWxpYXMvMmM5aDdqLmNsb3VkZm91bmRyeS1zYW1sLWxvZ2luIi8-PC9zYW1sMjpTdWJqZWN0Q29uZmlybWF0aW9uPjwvc2FtbDI6U3ViamVjdD48c2FtbDI6Q29uZGl0aW9ucyBOb3RCZWZvcmU9IjIwMjItMDUtMTlUMjA6MDM6MjUuOTQ2WiIgTm90T25PckFmdGVyPSIyMDIyLTA1LTE5VDIxOjAzOjI2LjAwMloiPjxzYW1sMjpBdWRpZW5jZVJlc3RyaWN0aW9uPjxzYW1sMjpBdWRpZW5jZT4yYzloN2ouY2xvdWRmb3VuZHJ5LXNhbWwtbG9naW48L3NhbWwyOkF1ZGllbmNlPjwvc2FtbDI6QXVkaWVuY2VSZXN0cmljdGlvbj48L3NhbWwyOkNvbmRpdGlvbnM-PHNhbWwyOkF1dGhuU3RhdGVtZW50IEF1dGhuSW5zdGFudD0iMjAyMi0wNS0xOVQyMDowMzoyNS45MjBaIiBTZXNzaW9uSW5kZXg9ImE0amRoNmc5Y2UwYzY1amM0ZDk5MGI4MGY0MjM4NjAiPjxzYW1sMjpBdXRobkNvbnRleHQ-PHNhbWwyOkF1dGhuQ29udGV4dENsYXNzUmVmPnVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphYzpjbGFzc2VzOlBhc3N3b3JkPC9zYW1sMjpBdXRobkNvbnRleHRDbGFzc1JlZj48L3NhbWwyOkF1dGhuQ29udGV4dD48L3NhbWwyOkF1dGhuU3RhdGVtZW50PjxzYW1sMjpBdHRyaWJ1dGVTdGF0ZW1lbnQ-PHNhbWwyOkF0dHJpYnV0ZSBOYW1lPSJhdXRob3JpdGllcyI-PHNhbWwyOkF0dHJpYnV0ZVZhbHVlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTp0eXBlPSJ4czpzdHJpbmciPnVhYS51c2VyPC9zYW1sMjpBdHRyaWJ1dGVWYWx1ZT48L3NhbWwyOkF0dHJpYnV0ZT48c2FtbDI6QXR0cmlidXRlIE5hbWU9ImVtYWlsIj48c2FtbDI6QXR0cmlidXRlVmFsdWUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnR5cGU9InhzOnN0cmluZyI-bWFyaXNzYUB0ZXN0aW5nLm9yZzwvc2FtbDI6QXR0cmlidXRlVmFsdWU-PC9zYW1sMjpBdHRyaWJ1dGU-PHNhbWwyOkF0dHJpYnV0ZSBOYW1lPSJpZCI-PHNhbWwyOkF0dHJpYnV0ZVZhbHVlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTp0eXBlPSJ4czpzdHJpbmciPjUwODFkMDczLTNhMmItNDA0Ni04OWUxLTQ1NTBjZDdkZGYwYjwvc2FtbDI6QXR0cmlidXRlVmFsdWU-PC9zYW1sMjpBdHRyaWJ1dGU-PHNhbWwyOkF0dHJpYnV0ZSBOYW1lPSJuYW1lIj48c2FtbDI6QXR0cmlidXRlVmFsdWUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnR5cGU9InhzOnN0cmluZyI-bWFyaXNzYTwvc2FtbDI6QXR0cmlidXRlVmFsdWU-PC9zYW1sMjpBdHRyaWJ1dGU-PHNhbWwyOkF0dHJpYnV0ZSBOYW1lPSJvcmlnaW4iPjxzYW1sMjpBdHRyaWJ1dGVWYWx1ZSB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6dHlwZT0ieHM6c3RyaW5nIj51YWE8L3NhbWwyOkF0dHJpYnV0ZVZhbHVlPjwvc2FtbDI6QXR0cmlidXRlPjxzYW1sMjpBdHRyaWJ1dGUgTmFtZT0iem9uZUlkIj48c2FtbDI6QXR0cmlidXRlVmFsdWUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnR5cGU9InhzOnN0cmluZyI-dWFhPC9zYW1sMjpBdHRyaWJ1dGVWYWx1ZT48L3NhbWwyOkF0dHJpYnV0ZT48L3NhbWwyOkF0dHJpYnV0ZVN0YXRlbWVudD48L3NhbWwyOkFzc2VydGlvbj4&scope=openid
+
+---Doc---
+POST /oauth/token
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Authorization: NONE
+
+client_id=nyq9rgvobqsg&client_secret=secret&grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&token_format=opaque&response_type=token+id_token&scope=openid&assertion=eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJzdWIiOiJjZGZiN2E3OS0yOGQ5LTQ5ZmQtYjg1ZS01Njk4NWVkYTE0MjYiLCJhdWQiOlsiME5LdVdPeGFQMDFKIl0sImlzcyI6Imh0dHA6Ly9tc3VqZGhqYjQyeHAubG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiZXhwIjoxNjUzMDMzNzg5LCJpYXQiOjE2NTI5OTA1ODksImFtciI6WyJwd2QiXSwiYXpwIjoiME5LdVdPeGFQMDFKIiwic2NvcGUiOlsib3BlbmlkIl0sImVtYWlsIjoicGdfcm84eHpiYnBuQHRlc3Qub3JnIiwiemlkIjoibXN1amRoamI0MnhwIiwib3JpZ2luIjoidWFhIiwianRpIjoiZjBlODlmYmE3YzYwNDQ5ZmJiYjU0YTU5OTZiMWQzMjAiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY2xpZW50X2lkIjoiME5LdVdPeGFQMDFKIiwiY2lkIjoiME5LdVdPeGFQMDFKIiwiZ3JhbnRfdHlwZSI6InBhc3N3b3JkIiwidXNlcl9uYW1lIjoicGdfcm84eHpiYnBuIiwicmV2X3NpZyI6IjdjZjA1YWI1IiwidXNlcl9pZCI6ImNkZmI3YTc5LTI4ZDktNDlmZC1iODVlLTU2OTg1ZWRhMTQyNiIsImF1dGhfdGltZSI6MTY1Mjk5MDU4OX0.oCGo5B9vFCMquEOts9B5OYVMaw7puC0kuLzJx_7RVds
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=app&client_secret=appclientsecret&grant_type=refresh_token&token_format=opaque&refresh_token=2741e80d689c4c8183aea2b497473bd6-r
+
+---Doc---
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=login&client_secret=loginsecret&grant_type=authorization_code&code=JAk13JrPg4eSXz88RaavFFZgCh40GEG-&token_format=opaque&redirect_uri=http%3A%2F%2Flocalhost%2Fredirect%2Fcf
+
+---Doc---
+GET /oauth/token/revoke/user/bc320bc6-81e9-4244-8119-12b4a65eb048
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiI3NWU4ZjAzZTdkZmU0ODk5OWRkMDQ2YmRkYTNhZjkzNiIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI2NTFhN2JmMSIsImlhdCI6MTY1Mjk5MDYxMSwiZXhwIjoxNjUzMDMzODExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.DqSQgr38KqhDutS8lryoi-BeMbokY2vJVpgZEzsTm6M
+
+---Doc---
+############ Bearer but short!
+GET /oauth/token/revoke/client/2ScdDx
+Authorization: Bearer 9d173c80b1784016a16cf0f98a219b7d
+
+---Doc---
+GET /oauth/token/revoke/user/b1f759e4-f64a-4971-a527-96ed8151e9a2/client/bQAc0s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiJjNDlhMjI0ZjEwZTA0YWFkYjc3YWNhODIyN2VlNDg0OCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwic2NvcGUiOlsiY2xpZW50cy5yZWFkIiwiY2xpZW50cy5zZWNyZXQiLCJjbGllbnRzLndyaXRlIiwidWFhLmFkbWluIiwiY2xpZW50cy5hZG1pbiIsInNjaW0ud3JpdGUiLCJzY2ltLnJlYWQiXSwiY2xpZW50X2lkIjoiYWRtaW4iLCJjaWQiOiJhZG1pbiIsImF6cCI6ImFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiI2NTFhN2JmMSIsImlhdCI6MTY1Mjk5MDYwMiwiZXhwIjoxNjUzMDMzODAyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbInNjaW0iLCJjbGllbnRzIiwidWFhIiwiYWRtaW4iXX0.mVi5l99qgPblTX99mCKlYJX2J0X3_zsuJU4prze8Nv0
+
+---Doc---
+DELETE /oauth/token/revoke/ac4bcecb44a249578406d88ee79c695d
+Authorization: Bearer ac4bcecb44a249578406d88ee79c695d
+
+---Doc---
+############ Bearer but short!
+GET /oauth/token/list/user/3f08f1b5-e372-491d-9117-fa2409c0fb3d
+Authorization: Bearer 6277ffc617d14a9298ef85c38b8e41b7
+Accept: application/json
+
+---Doc---
+############ Bearer but short!
+GET /oauth/token/list/client/fljfOA
+Authorization: Bearer 4b913ba3ed5547c4bbd0276a00ced560
+Accept: application/json
+
+---Doc---
+############ bearer!
+POST /introspect
+Authorization: bearer 8354a189264f42be8f2669449f9e12ac
+Content-Type: application/x-www-form-urlencoded
+
+token=0c507c3bbe6741d196f5ddf1ba613c6d
+
+---Doc---
+POST /check_token
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+Content-Type: application/x-www-form-urlencoded
+
+token=62edb8fd1f2344ae87342498b8a8d647&scopes=password.write%2Cscim.userids
+
+---Doc---
+GET /token_key
+Accept: application/json
+Authorization: NONE
+
+---Doc---
+GET /token_key
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+
+---Doc---
+GET /token_keys
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+
+---Doc---
+GET /logout.do?redirect=http%3A%2F%2Fredirect.localhost&client_id=some_client_that_contains_redirect_uri_matching_request_param&post_logout_redirect_uri=http%3A%2F%2Fredirect.localhost&id_token_hint=eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJzdWIiOiJhMGZlMGQ4OS1lZTJjLTRkMjEtYjFjMS0yNTQ2MzZjNzAxMTUiLCJhdWQiOlsic29tZV9jbGllbnRfdGhhdF9jb250YWluc19yZWRpcmVjdF91cmlfbWF0Y2hpbmdfcmVxdWVzdF9wYXJhbSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiYXpwIjoic29tZV9jbGllbnRfdGhhdF9jb250YWluc19yZWRpcmVjdF91cmlfbWF0Y2hpbmdfcmVxdWVzdF9wYXJhbSJ9.2yS83OUWQ7yWVvGRQieOKuvGtW6Pn8aJX9tRzd0lSpk
+Authorization: NONE
+
+---Doc---
+############ Bearer but short!
+POST /identity-zones
+Content-Type: application/json
+Authorization: Bearer c98a3d7592124bb5a104660addf08d86
+
+{
+  "id" : "twiglet-create",
+  "subdomain" : "twiglet-create",
+  "config" : {
+    "clientSecretPolicy" : {
+      "minLength" : -1,
+      "maxLength" : -1,
+      "requireUpperCaseCharacter" : -1,
+      "requireLowerCaseCharacter" : -1,
+      "requireDigit" : -1,
+      "requireSpecialCharacter" : -1
+    },
+    "tokenPolicy" : {
+      "accessTokenValidity" : 3600,
+      "refreshTokenValidity" : 7200,
+      "jwtRevocable" : false,
+      "refreshTokenUnique" : false,
+      "refreshTokenFormat" : "jwt",
+      "activeKeyId" : "active-key-1",
+      "keys" : {
+        "active-key-1" : {
+          "signingKey" : "key"
+        }
+      }
+    },
+    "samlConfig" : {
+      "assertionSigned" : true,
+      "requestSigned" : true,
+      "wantAssertionSigned" : true,
+      "wantAuthnRequestSigned" : false,
+      "assertionTimeToLiveSeconds" : 600,
+      "activeKeyId" : "legacy-saml-key",
+      "keys" : {
+        "legacy-saml-key" : {
+          "key" : "-----BEGIN RSA PRIVATE KEY-----\nMIIBOwIBAAJBAJv8ZpB5hEK7qxP9K3v43hUS5fGT4waKe7ix4Z4mu5UBv+cw7WSF\nAt0Vaag0sAbsPzU8Hhsrj/qPABvfB8asUwcCAwEAAQJAG0r3ezH35WFG1tGGaUOr\nQA61cyaII53ZdgCR1IU8bx7AUevmkFtBf+aqMWusWVOWJvGu2r5VpHVAIl8nF6DS\nkQIhAMjEJ3zVYa2/Mo4ey+iU9J9Vd+WoyXDQD4EEtwmyG1PpAiEAxuZlvhDIbbce\n7o5BvOhnCZ2N7kYb1ZC57g3F+cbJyW8CIQCbsDGHBto2qJyFxbAO7uQ8Y0UVHa0J\nBO/g900SAcJbcQIgRtEljIShOB8pDjrsQPxmI1BLhnjD1EhRSubwhDw5AFUCIQCN\nA24pDtdOHydwtSB5+zFqFLfmVZplQM/g5kb4so70Yw==\n-----END RSA PRIVATE KEY-----\n",
+          "passphrase" : "password",
+          "certificate" : "-----BEGIN CERTIFICATE-----\nMIICEjCCAXsCAg36MA0GCSqGSIb3DQEBBQUAMIGbMQswCQYDVQQGEwJKUDEOMAwG\nA1UECBMFVG9reW8xEDAOBgNVBAcTB0NodW8ta3UxETAPBgNVBAoTCEZyYW5rNERE\nMRgwFgYDVQQLEw9XZWJDZXJ0IFN1cHBvcnQxGDAWBgNVBAMTD0ZyYW5rNEREIFdl\nYiBDQTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmcmFuazRkZC5jb20wHhcNMTIw\nODIyMDUyNjU0WhcNMTcwODIxMDUyNjU0WjBKMQswCQYDVQQGEwJKUDEOMAwGA1UE\nCAwFVG9reW8xETAPBgNVBAoMCEZyYW5rNEREMRgwFgYDVQQDDA93d3cuZXhhbXBs\nZS5jb20wXDANBgkqhkiG9w0BAQEFAANLADBIAkEAm/xmkHmEQrurE/0re/jeFRLl\n8ZPjBop7uLHhnia7lQG/5zDtZIUC3RVpqDSwBuw/NTweGyuP+o8AG98HxqxTBwID\nAQABMA0GCSqGSIb3DQEBBQUAA4GBABS2TLuBeTPmcaTaUW/LCB2NYOy8GMdzR1mx\n8iBIu2H6/E2tiY3RIevV2OW61qY2/XRQg7YPxx3ffeUugX9F4J/iPnnu1zAxxyBy\n2VguKv4SWjRFoRkIfIlHX0qVviMhSlNy2ioFLy7JcPZb+v3ftDGywUqcBiVDoea0\nHn+GmxZA\n-----END CERTIFICATE-----\n"
+        }
+      },
+      "entityID" : "cloudfoundry-saml-login",
+      "disableInResponseToCheck" : false,
+      "certificate" : "-----BEGIN CERTIFICATE-----\nMIICEjCCAXsCAg36MA0GCSqGSIb3DQEBBQUAMIGbMQswCQYDVQQGEwJKUDEOMAwG\nA1UECBMFVG9reW8xEDAOBgNVBAcTB0NodW8ta3UxETAPBgNVBAoTCEZyYW5rNERE\nMRgwFgYDVQQLEw9XZWJDZXJ0IFN1cHBvcnQxGDAWBgNVBAMTD0ZyYW5rNEREIFdl\nYiBDQTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmcmFuazRkZC5jb20wHhcNMTIw\nODIyMDUyNjU0WhcNMTcwODIxMDUyNjU0WjBKMQswCQYDVQQGEwJKUDEOMAwGA1UE\nCAwFVG9reW8xETAPBgNVBAoMCEZyYW5rNEREMRgwFgYDVQQDDA93d3cuZXhhbXBs\nZS5jb20wXDANBgkqhkiG9w0BAQEFAANLADBIAkEAm/xmkHmEQrurE/0re/jeFRLl\n8ZPjBop7uLHhnia7lQG/5zDtZIUC3RVpqDSwBuw/NTweGyuP+o8AG98HxqxTBwID\nAQABMA0GCSqGSIb3DQEBBQUAA4GBABS2TLuBeTPmcaTaUW/LCB2NYOy8GMdzR1mx\n8iBIu2H6/E2tiY3RIevV2OW61qY2/XRQg7YPxx3ffeUugX9F4J/iPnnu1zAxxyBy\n2VguKv4SWjRFoRkIfIlHX0qVviMhSlNy2ioFLy7JcPZb+v3ftDGywUqcBiVDoea0\nHn+GmxZA\n-----END CERTIFICATE-----\n",
+      "privateKey" : "-----BEGIN RSA PRIVATE KEY-----\nMIIBOwIBAAJBAJv8ZpB5hEK7qxP9K3v43hUS5fGT4waKe7ix4Z4mu5UBv+cw7WSF\nAt0Vaag0sAbsPzU8Hhsrj/qPABvfB8asUwcCAwEAAQJAG0r3ezH35WFG1tGGaUOr\nQA61cyaII53ZdgCR1IU8bx7AUevmkFtBf+aqMWusWVOWJvGu2r5VpHVAIl8nF6DS\nkQIhAMjEJ3zVYa2/Mo4ey+iU9J9Vd+WoyXDQD4EEtwmyG1PpAiEAxuZlvhDIbbce\n7o5BvOhnCZ2N7kYb1ZC57g3F+cbJyW8CIQCbsDGHBto2qJyFxbAO7uQ8Y0UVHa0J\nBO/g900SAcJbcQIgRtEljIShOB8pDjrsQPxmI1BLhnjD1EhRSubwhDw5AFUCIQCN\nA24pDtdOHydwtSB5+zFqFLfmVZplQM/g5kb4so70Yw==\n-----END RSA PRIVATE KEY-----\n",
+      "privateKeyPassword" : "password"
+    },
+    "corsPolicy" : {
+      "xhrConfiguration" : {
+        "allowedOrigins" : [ ".*" ],
+        "allowedOriginPatterns" : [ ],
+        "allowedUris" : [ ".*" ],
+        "allowedUriPatterns" : [ ],
+        "allowedHeaders" : [ "Accept", "Authorization", "Content-Type" ],
+        "allowedMethods" : [ "GET" ],
+        "allowedCredentials" : false,
+        "maxAge" : 1728000
+      },
+      "defaultConfiguration" : {
+        "allowedOrigins" : [ ".*" ],
+        "allowedOriginPatterns" : [ ],
+        "allowedUris" : [ ".*" ],
+        "allowedUriPatterns" : [ ],
+        "allowedHeaders" : [ "Accept", "Authorization", "Content-Type" ],
+        "allowedMethods" : [ "GET" ],
+        "allowedCredentials" : false,
+        "maxAge" : 1728000
+      }
+    },
+    "links" : {
+      "logout" : {
+        "redirectUrl" : "/login",
+        "redirectParameterName" : "redirect",
+        "disableRedirectParameter" : false,
+        "whitelist" : null
+      },
+      "homeRedirect" : "http://my.hosted.homepage.com/",
+      "selfService" : {
+        "selfServiceLinksEnabled" : true,
+        "signup" : null,
+        "passwd" : null
+      }
+    },
+    "prompts" : [ {
+      "name" : "username",
+      "type" : "text",
+      "text" : "Email"
+    }, {
+      "name" : "password",
+      "type" : "password",
+      "text" : "Password"
+    }, {
+      "name" : "passcode",
+      "type" : "password",
+      "text" : "Temporary Authentication Code (Get on at /passcode)"
+    } ],
+    "idpDiscoveryEnabled" : false,
+    "branding" : {
+      "companyName" : "Test Company",
+      "productLogo" : "VGVzdFByb2R1Y3RMb2dv",
+      "squareLogo" : "VGVzdFNxdWFyZUxvZ28=",
+      "footerLegalText" : "Test footer legal text",
+      "footerLinks" : {
+        "Support" : "http://support.example.com"
+      },
+      "banner" : {
+        "logo" : "VGVzdFByb2R1Y3RMb2dv",
+        "text" : "Announcement",
+        "textColor" : "#000000",
+        "backgroundColor" : "#89cff0",
+        "link" : "http://announce.example.com"
+      },
+      "consent" : {
+        "text" : "Some Policy",
+        "link" : "http://policy.example.com"
+      }
+    },
+    "accountChooserEnabled" : false,
+    "userConfig" : {
+      "defaultGroups" : [ "openid", "password.write", "uaa.user", "approvals.me", "profile", "roles", "user_attributes", "uaa.offline_token" ]
+    },
+    "mfaConfig" : {
+      "enabled" : false,
+      "identityProviders" : [ "uaa", "ldap" ]
+    },
+    "issuer" : "http://localhost:8080/uaa",
+    "defaultIdentityProvider" : "uaa"
+  },
+  "name" : "The Twiglet Zone",
+  "version" : 0,
+  "description" : "Like the Twilight Zone but tastier.",
+  "created" : 1652990591226,
+  "active" : true,
+  "last_modified" : 1652990591226
+}
+
+---Doc---
+############ Bearer but short!
+GET /identity-zones/twiglet-get
+Authorization: Bearer 1da4e32ad13540f2bb43945073ddf26d
+
+---Doc---
+############ Bearer but short!
+GET /identity-zones
+Authorization: Bearer 9fe6ed88881349a087d2db1c9250422e
+
+---Doc---
+############ Bearer but short!
+PUT /identity-zones/twiglet-update
+Content-Type: application/json
+Authorization: Bearer fc57ca79328a4f2aa9a68badce29a09f
+
+{
+  "subdomain" : "twiglet-update",
+  "config" : {
+    "clientSecretPolicy" : {
+      "minLength" : -1,
+      "maxLength" : -1,
+      "requireUpperCaseCharacter" : -1,
+      "requireLowerCaseCharacter" : -1,
+      "requireDigit" : -1,
+      "requireSpecialCharacter" : -1
+    },
+    "tokenPolicy" : {
+      "accessTokenValidity" : -1,
+      "refreshTokenValidity" : -1,
+      "jwtRevocable" : false,
+      "refreshTokenUnique" : false,
+      "refreshTokenFormat" : "jwt",
+      "activeKeyId" : "updatedKeyId",
+      "keys" : {
+        "updatedKeyId" : {
+          "signingKey" : "upD4t3d.s1gNiNg.K3y/t3XT"
+        }
+      }
+    },
+    "samlConfig" : {
+      "assertionSigned" : true,
+      "requestSigned" : true,
+      "wantAssertionSigned" : true,
+      "wantAuthnRequestSigned" : false,
+      "assertionTimeToLiveSeconds" : 600,
+      "activeKeyId" : "legacy-saml-key",
+      "keys" : {
+        "legacy-saml-key" : {
+          "key" : "-----BEGIN RSA PRIVATE KEY-----\nMIIBOwIBAAJBAJv8ZpB5hEK7qxP9K3v43hUS5fGT4waKe7ix4Z4mu5UBv+cw7WSF\nAt0Vaag0sAbsPzU8Hhsrj/qPABvfB8asUwcCAwEAAQJAG0r3ezH35WFG1tGGaUOr\nQA61cyaII53ZdgCR1IU8bx7AUevmkFtBf+aqMWusWVOWJvGu2r5VpHVAIl8nF6DS\nkQIhAMjEJ3zVYa2/Mo4ey+iU9J9Vd+WoyXDQD4EEtwmyG1PpAiEAxuZlvhDIbbce\n7o5BvOhnCZ2N7kYb1ZC57g3F+cbJyW8CIQCbsDGHBto2qJyFxbAO7uQ8Y0UVHa0J\nBO/g900SAcJbcQIgRtEljIShOB8pDjrsQPxmI1BLhnjD1EhRSubwhDw5AFUCIQCN\nA24pDtdOHydwtSB5+zFqFLfmVZplQM/g5kb4so70Yw==\n-----END RSA PRIVATE KEY-----\n",
+          "passphrase" : "password",
+          "certificate" : "-----BEGIN CERTIFICATE-----\nMIICEjCCAXsCAg36MA0GCSqGSIb3DQEBBQUAMIGbMQswCQYDVQQGEwJKUDEOMAwG\nA1UECBMFVG9reW8xEDAOBgNVBAcTB0NodW8ta3UxETAPBgNVBAoTCEZyYW5rNERE\nMRgwFgYDVQQLEw9XZWJDZXJ0IFN1cHBvcnQxGDAWBgNVBAMTD0ZyYW5rNEREIFdl\nYiBDQTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmcmFuazRkZC5jb20wHhcNMTIw\nODIyMDUyNjU0WhcNMTcwODIxMDUyNjU0WjBKMQswCQYDVQQGEwJKUDEOMAwGA1UE\nCAwFVG9reW8xETAPBgNVBAoMCEZyYW5rNEREMRgwFgYDVQQDDA93d3cuZXhhbXBs\nZS5jb20wXDANBgkqhkiG9w0BAQEFAANLADBIAkEAm/xmkHmEQrurE/0re/jeFRLl\n8ZPjBop7uLHhnia7lQG/5zDtZIUC3RVpqDSwBuw/NTweGyuP+o8AG98HxqxTBwID\nAQABMA0GCSqGSIb3DQEBBQUAA4GBABS2TLuBeTPmcaTaUW/LCB2NYOy8GMdzR1mx\n8iBIu2H6/E2tiY3RIevV2OW61qY2/XRQg7YPxx3ffeUugX9F4J/iPnnu1zAxxyBy\n2VguKv4SWjRFoRkIfIlHX0qVviMhSlNy2ioFLy7JcPZb+v3ftDGywUqcBiVDoea0\nHn+GmxZA\n-----END CERTIFICATE-----\n"
+        }
+      },
+      "entityID" : "cloudfoundry-saml-login",
+      "disableInResponseToCheck" : false,
+      "certificate" : "-----BEGIN CERTIFICATE-----\nMIICEjCCAXsCAg36MA0GCSqGSIb3DQEBBQUAMIGbMQswCQYDVQQGEwJKUDEOMAwG\nA1UECBMFVG9reW8xEDAOBgNVBAcTB0NodW8ta3UxETAPBgNVBAoTCEZyYW5rNERE\nMRgwFgYDVQQLEw9XZWJDZXJ0IFN1cHBvcnQxGDAWBgNVBAMTD0ZyYW5rNEREIFdl\nYiBDQTEjMCEGCSqGSIb3DQEJARYUc3VwcG9ydEBmcmFuazRkZC5jb20wHhcNMTIw\nODIyMDUyNjU0WhcNMTcwODIxMDUyNjU0WjBKMQswCQYDVQQGEwJKUDEOMAwGA1UE\nCAwFVG9reW8xETAPBgNVBAoMCEZyYW5rNEREMRgwFgYDVQQDDA93d3cuZXhhbXBs\nZS5jb20wXDANBgkqhkiG9w0BAQEFAANLADBIAkEAm/xmkHmEQrurE/0re/jeFRLl\n8ZPjBop7uLHhnia7lQG/5zDtZIUC3RVpqDSwBuw/NTweGyuP+o8AG98HxqxTBwID\nAQABMA0GCSqGSIb3DQEBBQUAA4GBABS2TLuBeTPmcaTaUW/LCB2NYOy8GMdzR1mx\n8iBIu2H6/E2tiY3RIevV2OW61qY2/XRQg7YPxx3ffeUugX9F4J/iPnnu1zAxxyBy\n2VguKv4SWjRFoRkIfIlHX0qVviMhSlNy2ioFLy7JcPZb+v3ftDGywUqcBiVDoea0\nHn+GmxZA\n-----END CERTIFICATE-----\n",
+      "privateKey" : "-----BEGIN RSA PRIVATE KEY-----\nMIIBOwIBAAJBAJv8ZpB5hEK7qxP9K3v43hUS5fGT4waKe7ix4Z4mu5UBv+cw7WSF\nAt0Vaag0sAbsPzU8Hhsrj/qPABvfB8asUwcCAwEAAQJAG0r3ezH35WFG1tGGaUOr\nQA61cyaII53ZdgCR1IU8bx7AUevmkFtBf+aqMWusWVOWJvGu2r5VpHVAIl8nF6DS\nkQIhAMjEJ3zVYa2/Mo4ey+iU9J9Vd+WoyXDQD4EEtwmyG1PpAiEAxuZlvhDIbbce\n7o5BvOhnCZ2N7kYb1ZC57g3F+cbJyW8CIQCbsDGHBto2qJyFxbAO7uQ8Y0UVHa0J\nBO/g900SAcJbcQIgRtEljIShOB8pDjrsQPxmI1BLhnjD1EhRSubwhDw5AFUCIQCN\nA24pDtdOHydwtSB5+zFqFLfmVZplQM/g5kb4so70Yw==\n-----END RSA PRIVATE KEY-----\n",
+      "privateKeyPassword" : "password"
+    },
+    "corsPolicy" : {
+      "xhrConfiguration" : {
+        "allowedOrigins" : [ ".*" ],
+        "allowedOriginPatterns" : [ ],
+        "allowedUris" : [ ".*" ],
+        "allowedUriPatterns" : [ ],
+        "allowedHeaders" : [ "Accept", "Authorization", "Content-Type" ],
+        "allowedMethods" : [ "GET" ],
+        "allowedCredentials" : false,
+        "maxAge" : 1728000
+      },
+      "defaultConfiguration" : {
+        "allowedOrigins" : [ ".*" ],
+        "allowedOriginPatterns" : [ ],
+        "allowedUris" : [ ".*" ],
+        "allowedUriPatterns" : [ ],
+        "allowedHeaders" : [ "Accept", "Authorization", "Content-Type" ],
+        "allowedMethods" : [ "GET" ],
+        "allowedCredentials" : false,
+        "maxAge" : 1728000
+      }
+    },
+    "links" : {
+      "logout" : {
+        "redirectUrl" : "/login",
+        "redirectParameterName" : "redirect",
+        "disableRedirectParameter" : false,
+        "whitelist" : null
+      },
+      "homeRedirect" : "http://my.hosted.homepage.com/",
+      "selfService" : {
+        "selfServiceLinksEnabled" : true,
+        "signup" : null,
+        "passwd" : null
+      }
+    },
+    "prompts" : [ {
+      "name" : "username",
+      "type" : "text",
+      "text" : "Email"
+    }, {
+      "name" : "password",
+      "type" : "password",
+      "text" : "Password"
+    }, {
+      "name" : "passcode",
+      "type" : "password",
+      "text" : "Temporary Authentication Code (Get on at /passcode)"
+    } ],
+    "idpDiscoveryEnabled" : false,
+    "branding" : {
+      "companyName" : "Test Company",
+      "productLogo" : "VGVzdFByb2R1Y3RMb2dv",
+      "squareLogo" : "VGVzdFNxdWFyZUxvZ28=",
+      "footerLegalText" : "Test footer legal text",
+      "footerLinks" : {
+        "Support" : "http://support.example.com"
+      },
+      "banner" : {
+        "logo" : "VGVzdFByb2R1Y3RMb2dv",
+        "text" : "Announcement",
+        "textColor" : "#000000",
+        "backgroundColor" : "#89cff0",
+        "link" : "http://announce.example.com"
+      },
+      "consent" : {
+        "text" : "Some Policy",
+        "link" : "http://policy.example.com"
+      }
+    },
+    "accountChooserEnabled" : false,
+    "userConfig" : {
+      "defaultGroups" : [ "openid", "password.write", "uaa.user", "approvals.me", "profile", "roles", "user_attributes", "uaa.offline_token" ]
+    },
+    "mfaConfig" : {
+      "enabled" : false,
+      "identityProviders" : [ "uaa", "ldap" ]
+    },
+    "issuer" : "http://localhost:8080/uaa"
+  },
+  "name" : "The Updated Twiglet Zone",
+  "version" : 0,
+  "description" : "Like the Twilight Zone but not tastier.",
+  "created" : 1652990590945,
+  "active" : true,
+  "last_modified" : 1652990590945
+}
+
+---Doc---
+############ Bearer but short!
+DELETE /identity-zones/twiglet-delete
+Content-Type: application/json
+Authorization: Bearer 5a374f983f5e413583c79ada353a40b3
+
+---Doc---
+############ Bearer but short!
+POST /identity-providers?rawConfig=true
+Content-Type: application/json
+Authorization: Bearer b029fd8331e24c91bc52d2025772584c
+
+{
+  "type" : "saml",
+  "config" : {
+    "emailDomain" : null,
+    "providerDescription" : null,
+    "externalGroupsWhitelist" : [ ],
+    "attributeMappings" : {
+      "email_verified" : "emailVerified",
+      "external_groups" : [ "roles" ],
+      "user.attribute.department" : "department",
+      "phone_number" : "telephone",
+      "given_name" : "first_name",
+      "family_name" : "last_name",
+      "email" : "emailAddress"
+    },
+    "addShadowUserOnLogin" : true,
+    "storeCustomAttributes" : true,
+    "metaDataLocation" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?><md:EntityDescriptor xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\" entityID=\"http://www.okta.com/SAML\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\"true\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\"><md:KeyDescriptor use=\"signing\"><ds:KeyInfo xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>MIICmTCCAgKgAwIBAgIGAUPATqmEMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMMB1Bpdm90YWwxHDAaBgkqhkiG9w0BCQEWDWlu\nZm9Ab2t0YS5jb20wHhcNMTQwMTIzMTgxMjM3WhcNNDQwMTIzMTgxMzM3WjCBjzELMAkGA1UEBhMC\nVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRAwDgYDVQQDDAdQaXZvdGFsMRwwGgYJKoZIhvcN\nAQkBFg1pbmZvQG9rdGEuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCeil67/TLOiTZU\nWWgW2XEGgFZ94bVO90v5J1XmcHMwL8v5Z/8qjdZLpGdwI7Ph0CyXMMNklpaR/Ljb8fsls3amdT5O\nBw92Zo8ulcpjw2wuezTwL0eC0wY/GQDAZiXL59npE6U+fH1lbJIq92hx0HJSru/0O1q3+A/+jjZL\n3tL/SwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAI5BoWZoH6Mz9vhypZPOJCEKa/K+biZQsA4Zqsuk\nvvphhSERhqk/Nv76Vkl8uvJwwHbQrR9KJx4L3PRkGCG24rix71jEuXVGZUsDNM3CUKnARx4MEab6\nGFHNkZ6DmoT/PFagngecHu+EwmuDtaG0rEkFrARwe+d8Ru0BN558abFb</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"https://pivotal.oktapreview.com/app/pivotal_pivotalcfstaging_1/k2lw4l5bPODCMIIDBRYZ/sso/saml\"/><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"https://pivotal.oktapreview.com/app/pivotal_pivotalcfstaging_1/k2lw4l5bPODCMIIDBRYZ/sso/saml\"/></md:IDPSSODescriptor></md:EntityDescriptor>\n",
+    "nameID" : "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    "assertionConsumerIndex" : 0,
+    "metadataTrustCheck" : false,
+    "showSamlLink" : false,
+    "linkText" : "IDPEndpointsMockTests Saml Provider:SAML",
+    "iconUrl" : null,
+    "groupMappingMode" : "EXPLICITLY_MAPPED",
+    "skipSslValidation" : false,
+    "authnContext" : null,
+    "socketFactoryClassName" : null
+  },
+  "originKey" : "SAML",
+  "name" : "SAML name",
+  "active" : true
+}
+
+---Doc---
+############ Bearer but short!
+POST /identity-providers?rawConfig=true
+Content-Type: application/json
+X-Identity-Zone-Subdomain: uet2qmvg
+Authorization: Bearer 5fb37c07572e4761bdc2adc2a6f3fa33
+
+{
+  "type" : "ldap",
+  "config" : {
+    "emailDomain" : null,
+    "providerDescription" : null,
+    "externalGroupsWhitelist" : [ ],
+    "attributeMappings" : {
+      "email_verified" : "emailVerified"
+    },
+    "addShadowUserOnLogin" : true,
+    "storeCustomAttributes" : true,
+    "ldapProfileFile" : "ldap/ldap-simple-bind.xml",
+    "baseUrl" : "ldap://localhost:23389",
+    "referral" : null,
+    "skipSSLVerification" : false,
+    "userDNPattern" : "cn={0},ou=Users,dc=test,dc=com",
+    "userDNPatternDelimiter" : ";",
+    "bindUserDn" : null,
+    "userSearchBase" : null,
+    "userSearchFilter" : null,
+    "passwordAttributeName" : null,
+    "passwordEncoder" : null,
+    "localPasswordCompare" : null,
+    "mailAttributeName" : "mail",
+    "mailSubstitute" : null,
+    "mailSubstituteOverridesLdap" : false,
+    "ldapGroupFile" : "ldap/ldap-groups-null.xml",
+    "groupSearchBase" : null,
+    "groupSearchFilter" : null,
+    "groupsIgnorePartialResults" : null,
+    "autoAddGroups" : true,
+    "groupSearchSubTree" : true,
+    "maxGroupSearchDepth" : 10,
+    "groupRoleAttribute" : null,
+    "tlsConfiguration" : "none"
+  },
+  "originKey" : "ldap",
+  "name" : "ldap name",
+  "active" : true
+}
+
+---Doc---
+############ Bearer but short!
+POST /identity-providers?rawConfig=true
+Content-Type: application/json
+Authorization: Bearer dde0d4f0d46a42b3bed72f9d15a3c156
+
+{
+  "type" : "oauth2.0",
+  "config" : {
+    "emailDomain" : null,
+    "providerDescription" : null,
+    "attributeMappings" : {
+      "email_verified" : "emailVerified",
+      "external_groups" : [ "roles" ],
+      "user.attribute.department" : "department",
+      "phone_number" : "telephone",
+      "given_name" : "first_name",
+      "family_name" : "last_name",
+      "email" : "emailAddress"
+    },
+    "addShadowUserOnLogin" : true,
+    "storeCustomAttributes" : true,
+    "authUrl" : "http://auth.url",
+    "tokenUrl" : "http://token.url",
+    "tokenKeyUrl" : null,
+    "tokenKey" : "token-key",
+    "userInfoUrl" : null,
+    "logoutUrl" : null,
+    "linkText" : null,
+    "showLinkText" : false,
+    "clientAuthInBody" : false,
+    "skipSslValidation" : false,
+    "relyingPartyId" : "uaa",
+    "relyingPartySecret" : "secret",
+    "scopes" : null,
+    "issuer" : null,
+    "responseType" : "code",
+    "userPropagationParameter" : "username"
+  },
+  "originKey" : "my-oauth2-provider",
+  "name" : "UAA Provider",
+  "active" : true
+}
+
+---Doc---
+############ Bearer but short!
+GET /identity-providers?rawConfig=false
+Content-Type: application/json
+Authorization: Bearer 65a804aae5264940b3f091f82f233e7e
+
+---Doc---
+############ Bearer but short!
+GET /identity-providers/5595fa0a-97bb-4935-b6a9-3c75087ec9e0?rawConfig=false
+Content-Type: application/json
+Authorization: Bearer 3e1430841c3745fc98d8224ba6dea139
+
+---Doc---
+############ Bearer but short!
+PUT /identity-providers/ef321f40-f4a5-4edf-b78a-fbd966b494aa?rawConfig=true
+Content-Type: application/json
+Authorization: Bearer 39ee855072384c83a03fecd656280dbb
+
+{"type":"uaa","config":{"emailDomain":null,"providerDescription":null,"passwordPolicy":null,"lockoutPolicy":{"lockoutPeriodSeconds":8,"lockoutAfterFailures":8,"countFailuresWithin":8},"disableInternalUserManagement":false},"originKey":"uaa","name":"uaa","version":3,"active":true}
+
+---Doc---
+############ Bearer but short!
+DELETE /identity-providers/f27981e1-6277-48c4-99f8-0973898d5880?rawConfig=false
+Content-Type: application/json
+Authorization: Bearer f32cd310214940dbadbb611451874f64
+
+---Doc---
+############ Bearer but short!
+PATCH /identity-providers/ef321f40-f4a5-4edf-b78a-fbd966b494aa/status
+Content-Type: application/json
+Authorization: Bearer 9378a113b56c46459d3bdc91d45b0579
+
+{"requirePasswordChange":true}
+
+---Doc---
+GET /saml/idp/initiate?sp=Is8sHJfYkh.cloudfoundry-saml-login
+Authorization: NONE
+
+---Doc---
+############ Bearer but short!
+GET /saml/service-providers
+Authorization: Bearer 2e85803a8ef04052a10b12a89f884e2c
+
+---Doc---
+############ Bearer but short!
+GET /saml/service-providers/9742fd22-3802-44ba-8431-d85e1be5f6d5
+Authorization: Bearer d45d6eb433914a1195b09eebb086b3a9
+
+---Doc---
+############ Bearer but short!
+POST /saml/service-providers
+Content-Type: application/json
+Authorization: Bearer 093964c5e3cd48b58556843d85bade6b
+
+{
+  "config" : "{\"metaDataLocation\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><md:EntityDescriptor xmlns:md=\\\"urn:oasis:names:tc:SAML:2.0:metadata\\\" ID=\\\"yq9M8mGMCL.cloudfoundry-saml-login\\\" entityID=\\\"yq9M8mGMCL.cloudfoundry-saml-login\\\"><ds:Signature xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\\\"http://www.w3.org/2001/10/xml-exc-c14n#\\\"/><ds:SignatureMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\\\"/><ds:Reference URI=\\\"#yq9M8mGMCL.cloudfoundry-saml-login\\\"><ds:Transforms><ds:Transform Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\\\"/><ds:Transform Algorithm=\\\"http://www.w3.org/2001/10/xml-exc-c14n#\\\"/></ds:Transforms><ds:DigestMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#sha1\\\"/><ds:DigestValue>zALgjEFJ7jJSwn2AOBH5H8CX93U=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Rp5XH8eT0ek/vlFGzHgIFOeESchOwSYZ9oh4JA9WqQ0jJtvNQ9IttY2QY9XK3n6TbbtPcEKVgljyTfwD5ymp+oMKfIYQC9JsN8mPADN5rjLFgC+xGceWLbcjoNsCJ7x2ZjyWRblSxoOU5qnzxEA3k3Bu+OkV+ZXcSbmgMWoQACg=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><md:SPSSODescriptor AuthnRequestsSigned=\\\"true\\\" WantAssertionsSigned=\\\"true\\\" protocolSupportEnumeration=\\\"urn:oasis:names:tc:SAML:2.0:protocol\\\"><md:KeyDescriptor use=\\\"signing\\\"><ds:KeyInfo xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:KeyDescriptor use=\\\"encryption\\\"><ds:KeyInfo xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\\" Location=\\\"http://yq9M8mGMCL.localhost:8080/uaa/saml/SingleLogout/alias/yq9M8mGMCL.cloudfoundry-saml-login\\\"/><md:SingleLogoutService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\\" Location=\\\"http://yq9M8mGMCL.localhost:8080/uaa/saml/SingleLogout/alias/yq9M8mGMCL.cloudfoundry-saml-login\\\"/><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</md:NameIDFormat><md:AssertionConsumerService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\\" Location=\\\"http://yq9M8mGMCL.localhost:8080/uaa/saml/SSO/alias/yq9M8mGMCL.cloudfoundry-saml-login\\\" index=\\\"0\\\" isDefault=\\\"true\\\"/><md:AssertionConsumerService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact\\\" Location=\\\"http://yq9M8mGMCL.localhost:8080/uaa/saml/SSO/alias/yq9M8mGMCL.cloudfoundry-saml-login\\\" index=\\\"1\\\"/></md:SPSSODescriptor></md:EntityDescriptor>\",\"singleSignOnServiceIndex\":0,\"metadataTrustCheck\":true,\"skipSslValidation\":false,\"attributeMappings\":{\"given_name\":\"firstname\",\"family_name\":\"lastname\",\"phone_number\":\"phone\",\"email\":\"primary-email\"},\"enableIdpInitiatedSso\":true,\"staticCustomAttributes\":{\"organization-emails\":[\"contact@demoorg.com\",\"info@demo.org\"],\"organization-name\":\"The Demo Org\"}}",
+  "id" : null,
+  "entityId" : "yq9M8mGMCL.cloudfoundry-saml-login",
+  "name" : "yq9M8mGMCL",
+  "version" : 0,
+  "created" : null,
+  "lastModified" : null,
+  "active" : true,
+  "identityZoneId" : null
+}
+
+---Doc---
+############ Bearer but short!
+PUT /saml/service-providers/f2ef71af-a421-48f1-ab04-1f511a98bf8a
+Content-Type: application/json
+Authorization: Bearer dcfb47c1ba5541b695a89c046385e04d
+
+{
+  "config" : "{\"metaDataLocation\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><md:EntityDescriptor xmlns:md=\\\"urn:oasis:names:tc:SAML:2.0:metadata\\\" ID=\\\"recvzDB0S9.cloudfoundry-saml-login\\\" entityID=\\\"recvzDB0S9.cloudfoundry-saml-login\\\"><ds:Signature xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\\\"http://www.w3.org/2001/10/xml-exc-c14n#\\\"/><ds:SignatureMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\\\"/><ds:Reference URI=\\\"#recvzDB0S9.cloudfoundry-saml-login\\\"><ds:Transforms><ds:Transform Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\\\"/><ds:Transform Algorithm=\\\"http://www.w3.org/2001/10/xml-exc-c14n#\\\"/></ds:Transforms><ds:DigestMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#sha1\\\"/><ds:DigestValue>zALgjEFJ7jJSwn2AOBH5H8CX93U=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Rp5XH8eT0ek/vlFGzHgIFOeESchOwSYZ9oh4JA9WqQ0jJtvNQ9IttY2QY9XK3n6TbbtPcEKVgljyTfwD5ymp+oMKfIYQC9JsN8mPADN5rjLFgC+xGceWLbcjoNsCJ7x2ZjyWRblSxoOU5qnzxEA3k3Bu+OkV+ZXcSbmgMWoQACg=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><md:SPSSODescriptor AuthnRequestsSigned=\\\"true\\\" WantAssertionsSigned=\\\"true\\\" protocolSupportEnumeration=\\\"urn:oasis:names:tc:SAML:2.0:protocol\\\"><md:KeyDescriptor use=\\\"signing\\\"><ds:KeyInfo xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:KeyDescriptor use=\\\"encryption\\\"><ds:KeyInfo xmlns:ds=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><ds:X509Data><ds:X509Certificate>MIIDSTCCArKgAwIBAgIBADANBgkqhkiG9w0BAQQFADB8MQswCQYDVQQGEwJhdzEOMAwGA1UECBMF\\nYXJ1YmExDjAMBgNVBAoTBWFydWJhMQ4wDAYDVQQHEwVhcnViYTEOMAwGA1UECxMFYXJ1YmExDjAM\\nBgNVBAMTBWFydWJhMR0wGwYJKoZIhvcNAQkBFg5hcnViYUBhcnViYS5hcjAeFw0xNTExMjAyMjI2\\nMjdaFw0xNjExMTkyMjI2MjdaMHwxCzAJBgNVBAYTAmF3MQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UE\\nChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQLEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmEx\\nHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB\\ngQDHtC5gUXxBKpEqZTLkNvFwNGnNIkggNOwOQVNbpO0WVHIivig5L39WqS9u0hnA+O7MCA/KlrAR\\n4bXaeVVhwfUPYBKIpaaTWFQR5cTR1UFZJL/OF9vAfpOwznoD66DDCnQVpbCjtDYWX+x6imxn8HCY\\nxhMol6ZnTbSsFW6VZjFMjQIDAQABo4HaMIHXMB0GA1UdDgQWBBTx0lDzjH/iOBnOSQaSEWQLx1sy\\nGDCBpwYDVR0jBIGfMIGcgBTx0lDzjH/iOBnOSQaSEWQLx1syGKGBgKR+MHwxCzAJBgNVBAYTAmF3\\nMQ4wDAYDVQQIEwVhcnViYTEOMAwGA1UEChMFYXJ1YmExDjAMBgNVBAcTBWFydWJhMQ4wDAYDVQQL\\nEwVhcnViYTEOMAwGA1UEAxMFYXJ1YmExHTAbBgkqhkiG9w0BCQEWDmFydWJhQGFydWJhLmFyggEA\\nMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADgYEAYvBJ0HOZbbHClXmGUjGs+GS+xC1FO/am\\n2suCSYqNB9dyMXfOWiJ1+TLJk+o/YZt8vuxCKdcZYgl4l/L6PxJ982SRhc83ZW2dkAZI4M0/Ud3o\\nePe84k8jm3A7EvH5wi5hvCkKRpuRBwn3Ei+jCRouxTbzKPsuCVB+1sNyxMTXzf0=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\\" Location=\\\"http://recvzDB0S9.localhost:8080/uaa/saml/SingleLogout/alias/recvzDB0S9.cloudfoundry-saml-login\\\"/><md:SingleLogoutService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\\\" Location=\\\"http://recvzDB0S9.localhost:8080/uaa/saml/SingleLogout/alias/recvzDB0S9.cloudfoundry-saml-login\\\"/><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</md:NameIDFormat><md:AssertionConsumerService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\\\" Location=\\\"http://recvzDB0S9.localhost:8080/uaa/saml/SSO/alias/recvzDB0S9.cloudfoundry-saml-login\\\" index=\\\"0\\\" isDefault=\\\"true\\\"/><md:AssertionConsumerService Binding=\\\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact\\\" Location=\\\"http://recvzDB0S9.localhost:8080/uaa/saml/SSO/alias/recvzDB0S9.cloudfoundry-saml-login\\\" index=\\\"1\\\"/></md:SPSSODescriptor></md:EntityDescriptor>\",\"singleSignOnServiceIndex\":0,\"metadataTrustCheck\":true,\"skipSslValidation\":false,\"attributeMappings\":{\"given_name\":\"firstname\",\"family_name\":\"lastname\",\"phone_number\":\"phone\",\"email\":\"primary-email\"},\"enableIdpInitiatedSso\":true,\"staticCustomAttributes\":{\"organization-emails\":[\"contact@demoorg.com\",\"info@demo.org\"],\"portal-id\":\"346-asd-3412\",\"organization-name\":\"The Demo Org\"}}",
+  "id" : null,
+  "entityId" : "recvzDB0S9.cloudfoundry-saml-login",
+  "name" : "recvzDB0S9",
+  "version" : 0,
+  "created" : null,
+  "lastModified" : null,
+  "active" : true,
+  "identityZoneId" : null
+}
+
+---Doc---
+############ Bearer but short!
+DELETE /saml/service-providers/1a415d42-ce5c-4870-8a67-7802b5d26e3e
+Authorization: Bearer 37abc07cc3534ba491ce964c760a6e0d
+Accept: application/json
+
+---Doc---
+############ Bearer but short!
+POST /mfa-providers
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer b05ef4ba32be419fb44c802df6d689ff
+
+{
+  "name" : "sampleGoogleMfaProviderjs04US",
+  "config" : {
+    "providerDescription" : "Google MFA for default zone"
+  },
+  "type" : "google-authenticator"
+}
+
+---Doc---
+############ Bearer but short!
+GET /mfa-providers/3fee9782-a2bd-4cf7-a78e-32c85acc631b
+Authorization: Bearer 97734c2954a74700a86a0faf995b5cec
+Accept: application/json
+
+---Doc---
+############ Bearer but short!
+DELETE /mfa-providers/bae8a2a4-3980-4af2-96c7-4c4b68bd3fc6
+Authorization: Bearer 3d16e477ac27428bbb2927292ca66152
+Accept: application/json
+
+---Doc---
+############ Bearer but short!
+GET /mfa-providers
+Authorization: Bearer 7c33ab175e4645e0a31d94253fc3181b
+Accept: application/json
+
+---Doc---
+############ Bearer but short!
+GET /Users/f0967eb1-75b6-40f3-a8bd-791fbeb1a46d
+Accept: application/json
+Authorization: Bearer 2c7bb54d450e497591bfbff04219e88d
+Content-Type: application/json
+If-Match: 0
+
+---Doc---
+############ Bearer but short!
+GET /Users?filter=id+eq+%226257b399-116b-47d9-9300-7a5b21d3bc4a%22+or+email+eq+%22RC8bEx%40test.org%22&sortBy=email&count=50&sortOrder=ascending&startIndex=1
+Accept: application/json
+Authorization: Bearer ffd598bc13904668b222f76f0801dd36
+
+---Doc---
+############ Bearer but short!
+GET /Users?attributes=id%2CuserName%2Cemails%2Cactive&filter=id+eq+%22fe8fddaa-70a6-4ecd-b32a-293234282d31%22&sortBy=email&count=50&sortOrder=ascending&startIndex=1
+Accept: application/json
+Authorization: Bearer 7b763ccba7364dde9133c428b44b6b66
+
+---Doc---
+############ Bearer but short!
+POST /Users
+Accept: application/json
+Authorization: Bearer ff6159e5146c4ef994d79c765a8b9ac0
+Content-Type: application/json
+
+{
+  "externalId" : "test-user",
+  "meta" : {
+    "version" : 0,
+    "created" : "2022-05-19T20:02:56.103Z"
+  },
+  "userName" : "M36BxJ@test.org",
+  "name" : {
+    "formatted" : "given name family name",
+    "familyName" : "family name",
+    "givenName" : "given name"
+  },
+  "emails" : [ {
+    "value" : "M36BxJ@test.org",
+    "primary" : true
+  } ],
+  "phoneNumbers" : [ {
+    "value" : "5555555555"
+  } ],
+  "active" : true,
+  "verified" : true,
+  "origin" : "",
+  "password" : "secret",
+  "schemas" : [ "urn:scim:schemas:core:1.0" ]
+}
+
+---Doc---
+############ Bearer but short!
+PUT /Users/b07dc319-0742-4679-8f1b-04669af5abcc
+Accept: application/json
+Authorization: Bearer ac3ae8fbcbf1468ab23acf1ed2a74447
+Content-Type: application/json
+If-Match: 0
+
+{
+  "id" : "b07dc319-0742-4679-8f1b-04669af5abcc",
+  "externalId" : "test-user",
+  "meta" : {
+    "version" : 0,
+    "created" : "2022-05-19T20:02:55.758Z",
+    "lastModified" : "2022-05-19T20:02:55.758Z"
+  },
+  "userName" : "IAMWF5@test.org",
+  "name" : {
+    "familyName" : "family name",
+    "givenName" : "given name"
+  },
+  "emails" : [ {
+    "value" : "IAMWF5@test.org",
+    "primary" : false
+  } ],
+  "groups" : [ ],
+  "approvals" : [ ],
+  "phoneNumbers" : [ {
+    "value" : "5555555555"
+  } ],
+  "active" : true,
+  "verified" : true,
+  "origin" : "uaa",
+  "zoneId" : "uaa",
+  "passwordLastModified" : "2022-05-19T20:02:55.000Z",
+  "schemas" : [ "urn:scim:schemas:core:1.0" ]
+}
+
+---Doc---
+############ Bearer but short!
+PATCH /Users/5c74a00f-460b-4181-a364-40c127407577
+Accept: application/json
+Authorization: Bearer 77de1fd5275142e09eab202095f00cf9
+Content-Type: application/json
+If-Match: 0
+
+{
+  "id" : "5c74a00f-460b-4181-a364-40c127407577",
+  "externalId" : "test-user",
+  "meta" : {
+    "version" : 0,
+    "created" : "2022-05-19T20:02:56.730Z",
+    "lastModified" : "2022-05-19T20:02:56.730Z"
+  },
+  "userName" : "Hi6kgP@test.org",
+  "name" : {
+    "familyName" : "family name",
+    "givenName" : "given name"
+  },
+  "emails" : [ {
+    "value" : "Hi6kgP@test.org",
+    "primary" : false
+  } ],
+  "groups" : [ ],
+  "approvals" : [ ],
+  "phoneNumbers" : [ {
+    "value" : "5555555555"
+  } ],
+  "active" : true,
+  "verified" : true,
+  "origin" : "uaa",
+  "zoneId" : "uaa",
+  "passwordLastModified" : "2022-05-19T20:02:56.000Z",
+  "schemas" : [ "urn:scim:schemas:core:1.0" ]
+}
+
+---Doc---
+############ Bearer but short!
+DELETE /Users/de9f2dca-ccfe-4219-92db-7132f88d857f
+Accept: application/json
+Authorization: Bearer fdc2d14778b64ba7888af315bf37af40
+Content-Type: application/json
+If-Match: 0
+

@@ -1,0 +1,144 @@
+---Request:
+# No Security -- Probably bogus!
+GET /square-logo.png
+Authorization: NONE
+
+---Request:
+# No Security -- Probably bogus!
+# Also some 429(s) -- leaving them out to show: *********************** Unexpected
+expect: 200
+GET /oauth/token/.well-known/openid-configuration
+Authorization: NONE
+
+---Request:
+# No Security
+# Also some 429(s) -- leaving them out to show: *********************** Unexpected
+expect: 200
+GET /.well-known/openid-configuration
+Accept: application/json
+Authorization: NONE
+
+---Request:
+expect: 200, 429
+GET /info
+Accept: application/json
+Authorization: NONE
+
+---Request: Sequence
+# redirects to /login
+expect: 302, 429
+GET /
+Authorization: NONE
+
+---Request: -
+expect: 200, 429
+GET /login
+Authorization: NONE
+
+---Request: -
+expect: 404, 429
+GET /favicon.ico
+Authentication: NONE
+
+---Request: -
+# (/resources/**) -- used on both the login page AND the Too many requests page
+expect: 200, 429
+GET /resources/oss/images/product-logo.png
+Authorization: NONE
+
+---Request: -
+# (/resources/**) -- used on the login page (AND maybe the Too many requests page)
+expect: 200, 429
+GET /resources/oss/images/square-logo.png
+Authorization: NONE
+
+---Request: -
+# (/resources/**) -- used on both the login page AND the Too many requests page
+expect: 200, 429
+GET /resources/oss/stylesheets/application.css
+Authorization: NONE
+
+---Request: -
+# (/vendor/**) -- used on both the login page AND the Too many requests page
+expect: 200, 429
+GET /vendor/font-awesome/css/font-awesome.min.css
+Authorization: NONE
+
+---Request: -
+expect: 302, 429
+GET /logout.do?redirect=http%3A%2F%2Fredirect.localhost&client_id=some_client_that_contains_redirect_uri_matching_request_param&post_logout_redirect_uri=http%3A%2F%2Fredirect.localhost&id_token_hint=eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0OjgwODAvdWFhL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJzdWIiOiJhMGZlMGQ4OS1lZTJjLTRkMjEtYjFjMS0yNTQ2MzZjNzAxMTUiLCJhdWQiOlsic29tZV9jbGllbnRfdGhhdF9jb250YWluc19yZWRpcmVjdF91cmlfbWF0Y2hpbmdfcmVxdWVzdF9wYXJhbSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvdWFhL29hdXRoL3Rva2VuIiwiYXpwIjoic29tZV9jbGllbnRfdGhhdF9jb250YWluc19yZWRpcmVjdF91cmlfbWF0Y2hpbmdfcmVxdWVzdF9wYXJhbSJ9.2yS83OUWQ7yWVvGRQieOKuvGtW6Pn8aJX9tRzd0lSpk
+Authorization: NONE
+
+---Request:
+# No Security
+GET /email_sent
+Authentication: NONE
+
+---Request:
+# No Security
+GET /accounts/email_sent
+Authentication: NONE
+
+---Request:
+# No Security
+GET /saml_error
+Authentication: NONE
+
+---Request:
+# No Security
+GET /oauth_error
+Authentication: NONE
+
+---Request:
+# No Security
+GET /session
+Authentication: NONE
+
+---Request:
+# No Security
+GET /invalid_request
+Authentication: NONE
+
+---Request:
+GET (A)/oauth/authorize?response_type=code&client_id=login&scope=openid+oauth.approvals&redirect_uri=http%3A%2F%2Flocalhost%2Fapp&login_hint=%257B%2522origin%2522%253A%2522uaa%2522%257D&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Request:
+GET (B)/oauth/authorize?response_type=token&client_id=app&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapp%2F&login_hint=%257B%2522origin%2522%253A%2522uaa%2522%257D
+Accept: application/x-www-form-urlencoded
+Authorization: NONE
+
+---Request:
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=login&client_secret=loginsecret&scope=scim.write&grant_type=client_credentials&token_format=opaque
+
+---Request:
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=login&client_secret=loginsecret&scope=scim.write&grant_type=client_credentials&token_format=opaque
+
+---Request:
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+Authorization: NONE
+
+client_id=login&client_secret=loginsecret&scope=scim.write&grant_type=client_credentials&token_format=opaque
+
+---Request:
+GET /token_key
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+
+---Request:
+GET /token_keys
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
